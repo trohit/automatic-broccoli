@@ -27,7 +27,7 @@ IFS=$'\n'
 for i in `find $PASSED -type f -name "*"` 
 do
    # $i iterates through each filename in the dir
-   echo doing some crap on [$i]
+   echo trunctaing file [$i]
    # the next command truncates the file
    echo > $i 
 done
