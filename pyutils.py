@@ -212,7 +212,7 @@ class FakeSecHead(object):
 # reads all the important config into a dict 
 def read_config_file_without_sections(file_path):
     cp = ConfigParser.SafeConfigParser()
-    #cp.readfp(FakeSecHead(open('/home/rohit/Downloads/auto/elasticbeam/lsm/conf/lsm.properties')))
+    #cp.readfp(FakeSecHead(open('/home/rohit/Downloads/somefile.json')))
     cp.readfp(FakeSecHead(open(file_path)))
 
     #print cp.items('asection')
