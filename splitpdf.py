@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 #http://unix.stackexchange.com/questions/12482/split-pages-in-pdf
+# and for joining them, see:
+# http://stackoverflow.com/questions/2507766/merge-convert-multiple-pdf-files-into-one-pdf
 import copy, sys
 from pyPdf import PdfFileWriter, PdfFileReader
 input = PdfFileReader(sys.stdin)
