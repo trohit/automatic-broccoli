@@ -68,6 +68,18 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+# Accepts an epoch and converts it into a human readable time
+# date -d @1478587042
+# to get a date in epoch format : date +'%s'
+def epoch2date(epoch):
+    epoch = str(epoch)
+    if len(epoch) > 10:
+        # strip chars greater than 10
+        # must be ms and beyond and we cant process them
+        epoch = epoch[:10]
+    print ('converting ' + epoch)
+    return (time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(epoch))))
+
 # accepts a datetime.timedelta
 # time_delta_to_str(8640)
 # '2:24:0'
