@@ -1,0 +1,29 @@
+#!/usr/bin/python
+import subprocess
+import re
+import sys
+
+
+def is_port_open_local(port):
+    popen = subprocess.Popen(['netstat', '-lpn'],
+                             shell=False,
+                             stdout=subprocess.PIPE)
+    #(data, err) = popen.communicate()
+    (data, _) = popen.communicate()
+    patt = '^tcp.*((?:' + str(port) + ')).* (?P<pid>[0-9]*)/.*'
+    p = re.compile(patt)
+
+    for line in data.split('\n'):
+        match = re.match(p, line)
+        if match:
+            #pid = match.group('pid')
+            #print('found pid ' + str(pid))
+            return True 
+    return False
+
+
+if __name__ =='__main__':
+	argc = len(sys.argv)
+	port = sys.argv[1]
+	print(int(is_port_open_local(port)))
+		
