@@ -1,0 +1,8 @@
+#!/bin/bash
+#set -x
+RES=`netstat -tlpn| grep "$1" |wc -l`
+if [ $RES -ne 1 ]; then
+	echo ALERT: service not running at $1
+else
+	echo service found at $1
+fi
