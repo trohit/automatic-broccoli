@@ -1,0 +1,8 @@
+#!/bin/bash
+#set -x
+
+MYPID=`netstat -tlpn|grep $1 |awk {'print $7'}|awk -F'/' {'print $1'}`
+NAME=`netstat -tlpn|grep $1 |awk {'print $7'}|awk -F'/' {'print $2'}`
+PWDX=`pwdx $1`
+echo killing PID $MYPID called $NAME in path $PWDX
+kill -9 $MYPID
