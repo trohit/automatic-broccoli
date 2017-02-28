@@ -1,0 +1,7 @@
+#!/bin/bash
+# Usage: ./dosum ./file.txt
+# to calculate sum of numbers 
+# for slightly different needs, see:
+# http://unix.stackexchange.com/questions/4840/adding-numbers-from-the-result-of-a-grep
+#cat $1 | awk '{total = total + $1}END{print total}'
+cat $1 | awk '{SUM+=$1}END{print SUM}'
