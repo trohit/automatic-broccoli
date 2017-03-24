@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Simple Program to toggle USB power to a usb root hub
+# used for switching on and off a usb powered light
+
+
+# Config param
+# get it by doing lsusb
+#############################################################################
+BUS_DEVICE='1-1'
+#############################################################################
+
+# just in case user exits by pressing Ctrl-C
+# restore the settings
+cleanup()
+{
+        echo ${BUS_DEVICE} > /sys/bus/usb/drivers/usb/bind
+}
+
+control_c()
+# run if user hits control-c
+{
+  echo -en "\n*** Ouch! Exiting ***\n"
+  cleanup
+  exit $?
+}
+
+# trap keyboard interrupt (control-c)
+trap control_c SIGINT
+
+# toggle_usb_power <delay_in_secs> <iterations>
+function toggle_usb_power()
+{
+        local delay=$1
+        local times=$2
+        for i in `seq $times`
+        do
+                echo Switched Off
+                echo ${BUS_DEVICE} > /sys/bus/usb/drivers/usb/unbind
+                sleep $delay
+                cleanup
+                echo Switched On
+                sleep $delay
+        done
+}
+
+toggle_usb_power 1.5 1
