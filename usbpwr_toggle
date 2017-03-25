@@ -2,7 +2,7 @@
 
 # Simple Program to toggle USB power to a usb root hub
 # used for switching on and off a usb powered light
-
+# http://stackoverflow.com/questions/4702216/controlling-a-usb-power-supply-on-off-with-linux
 
 # Config param
 # get it by doing lsusb
