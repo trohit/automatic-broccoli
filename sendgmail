@@ -1,52 +1,74 @@
 #!/usr/bin/env python
-
 # script to send email 
 # accepts subject, body and attachment as args
 # Usage:" + sys.argv[0] + ' <subject> <file_body.txt> [file_attachment.extn]
-
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 import smtplib
-import sys
+import sys 
 import datetime
+import ConfigParser
 
 def date_str():
     pstr = str(datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S'))
     return str(pstr)
 
+"""
+reads from an init file that looks like:
+$ cat sample.ini 
+[sender]
+username: someuser@gmail.com
+password: secret
+
+[receiver]
+"""
+def parse_credentials(ini_file):
+        settings = ConfigParser.ConfigParser()
+        settings.read(ini_file)
+        username = settings.get('sender', 'username')
+        password = settings.get('sender', 'password')
+        #print ("user:" + username)
+        #print ("password:" + password)
+        return (username, password)
 ################################################################################
 #####################   CONFIGURATION PARMARETERS ##############################   
-config_from = 'sender@gmail.com'
-config_from_password =  "XXXXX"
-config_recipients = ['rohit@gmail.com', 'receiver@gmail.com']
+config_from = ''
+config_from_password =  ''  
+#config_recipients = ['one@gmail.com', 'two@gmail.com']
+config_recipients = ['']
 ################################################################################
 
 opt_config_reply_to = config_from
-
-
 if __name__ == '__main__':
     argc = len(sys.argv)
     #print('argc:' + str(argc))
-    if argc < 3 or argc > 4:
-        print("Usage:" + sys.argv[0] + ' <subject> <file_body.txt> [file_attachment.extn]')
+    if argc < 4 or argc > 5:
+        print("Usage:" + sys.argv[0] + ' <to> <subject> <file_body.txt> [file_attachment.extn]')
         sys.exit(1)
     # get the positional args
-    arg_subject = str(sys.argv[1])
-    arg_body = str(sys.argv[2])
-    if argc == 4:
+    arg_recipient = str(sys.argv[1])
+    arg_subject = str(sys.argv[2])
+    arg_body = str(sys.argv[3])
+    #print("argc:" + str(argc))
+    #sys.exit(1)
+    if argc == 5:
         # third arg is filename of the attachment      
-        arg_attachment = str(sys.argv[3])
+        arg_attachment = str(sys.argv[4])
     else:
         arg_attachment = None
     #print('arg_attachment:' + str(arg_attachment))    
+    config_recipients[0] = arg_recipient
 
+    # read variables from config ini
+    config_from, config_from_password = parse_credentials("sample.ini")
     recipients = config_recipients
     emaillist = [elem.strip().split(',') for elem in recipients]
     msg = MIMEMultipart()
     msg['Subject'] = arg_subject
     msg['From'] = config_from
     msg['Reply-to'] = opt_config_reply_to
+    msg['To'] = arg_recipient
     msg.preamble = 'Multipart message.\n'
 
     # read file as string for the body
