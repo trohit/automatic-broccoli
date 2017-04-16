@@ -75,9 +75,10 @@ if __name__ == '__main__':
     arg_from, arg_from_password = parse_credentials(str(sys.argv[1]))
 
     # read file as string for the body
-    with open(arg_body) as f:
-        body_str = f.read()
+    with open(arg_body, 'r') as somefile:
+        body_str = somefile.read()
 
+        
     # send_email needs multiple recipients as a list
     to_list = arg_recipients.split(',')
 
