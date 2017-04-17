@@ -37,12 +37,15 @@ def parse_options(ini_file):
 
 # recipients must be a list
 def send_email (smtp_server, fromaddr, passwd, recipients, subject, message):
+    msg = MIMEMultipart()
+    part = MIMEText(body_str)
+    msg.attach(part)
     server = smtplib.SMTP(smtp_server)
     server.ehlo()
     server.starttls()
     server.ehlo()
     server.login(fromaddr, passwd)
-    server.sendmail(fromaddr, recipients, 'Subject: %s\r\n%s' % (subject, message))
+    server.sendmail(fromaddr, recipients, 'Subject: %s\r\n%s' % (subject, msg.as_string()))
     server.quit()
 
 #####################   CONFIGURATION PARMARETERS ##############################
