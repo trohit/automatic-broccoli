@@ -1,3 +1,6 @@
+# top 10 commands
+top10() { history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head; }
+
 # emulate mac commands on linux
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
