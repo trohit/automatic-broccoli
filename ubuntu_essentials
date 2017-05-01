@@ -1,0 +1,13 @@
+# essential packages that I possibly need on an ubuntu workstation
+# sudo dpkg --get-selections
+sudo apt-get update
+
+sudo apt-get install build-essential 
+sudo apt-get install tree
+sudo apt-get install screen
+sudo apt-get install tmux
+# installs / removes packages as needed to install python
+sudo apt-get build-dep python
+
+sudo apt autoremove
+
