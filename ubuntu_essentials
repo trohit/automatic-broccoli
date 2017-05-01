@@ -9,5 +9,8 @@ sudo apt-get install tmux
 # installs / removes packages as needed to install python
 sudo apt-get build-dep python
 
+
+
+sudo apt-get install fortune 
 sudo apt autoremove
 
