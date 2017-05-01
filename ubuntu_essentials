@@ -8,6 +8,8 @@ sudo apt-get install screen
 sudo apt-get install tmux
 # installs / removes packages as needed to install python
 sudo apt-get build-dep python
+sudo apt install git
+
 
 
 
