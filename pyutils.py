@@ -80,6 +80,14 @@ def epoch2date(epoch):
     print ('converting ' + epoch)
     return (time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(epoch))))
 
+# accepts a datettime object
+# if no argument is specified, will return time in epoch
+def date2epoch(dt = None):
+    if dt is None:
+        return datetime.datetime.now().strftime('%s')
+    else:
+        return dt.strftime('%s')
+        
 # accepts a datetime.timedelta
 # time_delta_to_str(8640)
 # '2:24:0'
