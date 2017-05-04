@@ -84,9 +84,9 @@ def epoch2date(epoch):
 # if no argument is specified, will return time in epoch
 def date2epoch(dt = None):
     if dt is None:
-        return datetime.datetime.now().strftime('%s')
+        return int(datetime.datetime.now().strftime('%s'))
     else:
-        return dt.strftime('%s')
+        return int(dt.strftime('%s'))
         
 # accepts a datetime.timedelta
 # time_delta_to_str(8640)
