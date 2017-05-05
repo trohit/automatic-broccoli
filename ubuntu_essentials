@@ -19,3 +19,12 @@ sudo apt-get install terminator
 sudo apt-get install fortune 
 sudo apt autoremove
 
+# nice to have 3rd party utilities
+# https://github.com/dvorka/hstr
+sudo add-apt-repository ppa:ultradvorka/ppa
+sudo apt-get update
+sudo apt-get install hh
+
+# google search at the command line
+ # https://github.com/jarun/googler/
+
