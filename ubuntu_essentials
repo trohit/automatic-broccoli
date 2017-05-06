@@ -15,6 +15,8 @@ sudo apt install git
 # do the right extraction - alternative to tar, automatically extracts any zip format
 sudo apt-get install dtrx 
 
+# fortune cookies
+sudo apt install fortune-mod
 
 # desktop
 sudo apt-get install terminator
