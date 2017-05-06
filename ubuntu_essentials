@@ -8,6 +8,10 @@ sudo apt-get install screen
 sudo apt-get install tmux
 sudo apt-get install aria2c
 
+# for nodejs
+apt-get install nodejs 
+apt-get install npm
+
 # installs / removes packages as needed to install python
 sudo apt-get build-dep python
 sudo apt install git
@@ -27,8 +31,15 @@ sudo apt autoremove
 # https://github.com/dvorka/hstr
 sudo add-apt-repository ppa:ultradvorka/ppa
 sudo apt-get update
+
+## command line completion 
 sudo apt-get install hh
 
-# google search at the command line
- # https://github.com/jarun/googler/
+## system load indicator
+sudo add-apt-repository ppa:indicator-multiload/stable-daily
+sudo apt-get update
+sudo apt-get install indicator-multiload
+
+## google search at the command line
+## https://github.com/jarun/googler/
 
