@@ -12,6 +12,11 @@ sudo apt-get install aria2c
 apt-get install nodejs 
 apt-get install npm
 
+# atom editor and IDE
+sudo add-apt-repository ppa:webupd8team/atom
+sudo apt-get update
+sudo apt-get install atom
+
 # installs / removes packages as needed to install python
 sudo apt-get build-dep python
 sudo apt install git
