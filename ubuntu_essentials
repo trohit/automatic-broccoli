@@ -6,7 +6,12 @@ sudo apt-get install build-essential
 sudo apt-get install tree
 sudo apt-get install screen
 sudo apt-get install tmux
+
+# for better wget
 sudo apt-get install aria2
+
+# for speech to text
+sudo apt-get install espeak
 
 # for nodejs
 apt-get install nodejs 
