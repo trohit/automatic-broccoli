@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# should be used to tell time on an hourly basis
+# by using a crontab entry and running it hourly
+espeak --stdout `date +'%I%p'` | paplay
