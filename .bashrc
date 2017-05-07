@@ -29,7 +29,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # to print the external facing ip address
-function ext-ip () { lynx --dump http://ipecho.net/plain; }
+function extip () { lynx --dump http://ipecho.net/plain; }
 
 
 # Alias definitions.
@@ -44,6 +44,12 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias a='./a.out';
+alias open='gnome-open'; # open files with appropriate program from terminal
+alias p='python';
+alias v='vim';
+alias mv='mv -i' # asks if accidentally replacing
+
 
 # drop the caches
 alias freemem='sudo /sbin/sysctl -w vm.drop_caches=3'
