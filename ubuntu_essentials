@@ -21,6 +21,9 @@ sudo apt-get install gimp
 apt-get install nodejs 
 apt-get install npm
 
+# for provisioning and automation
+sudo apt-get install ansible
+
 # atom editor and IDE
 sudo add-apt-repository ppa:webupd8team/atom
 sudo apt-get update
