@@ -13,6 +13,10 @@ sudo apt-get install aria2
 # for speech to text
 sudo apt-get install espeak
 
+# for paint laternative for image editing
+sudo apt-get install pinta
+sudo apt-get install gimp
+
 # for nodejs
 apt-get install nodejs 
 apt-get install npm
