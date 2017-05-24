@@ -17,6 +17,9 @@ set smartindent
 set smarttab
 set cindent
 
+" automatically indent the braces
+inoremap {<CR> {<CR>}<C-o>O
+
 " enable auto filetype detect
 filetype on
 set ff=unix
@@ -56,3 +59,4 @@ nmap <F3> :%s/\S\zs\s\+$//g<CR><Esc>
 " remove empty lines
 nmap <F4> :%s/\s\+$//g<CR><Esc>
 nmap <F5> :Tlist<Enter>
+
