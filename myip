@@ -1,3 +1,4 @@
 #!/bin/bash
 ip route get 1 | awk '{print $NF;exit}'
 #ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'
+#ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.\|169.' | awk '{ print $2}'
