@@ -106,3 +106,7 @@ defshell bash
 caption always "%{= kc} %C %H (system load: %l)%-21=%{= .m}%D %d.%m.%Y %0c"
 #caption always "%{= kc}%H (system load: %l)%-23=%{= .m}%D %d.%m.%Y %0c:%s"
 
+# prevent screenrc from resetting my prompt
+# fix for csh
+shell -$SHELL
+ 
