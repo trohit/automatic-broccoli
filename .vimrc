@@ -60,3 +60,5 @@ nmap <F3> :%s/\S\zs\s\+$//g<CR><Esc>
 nmap <F4> :%s/\s\+$//g<CR><Esc>
 nmap <F5> :Tlist<Enter>
 
+# show the filename in the status
+set laststatus=2
