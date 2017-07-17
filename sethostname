@@ -1,5 +1,8 @@
 #!/bin/bash
 # works for ubuntu systems
+# from Ubuntu 13.03, try
+# hostnamectl set-hostname new-hostname
+
 #Assign existing hostname to $hostn
 hostn=$(cat /etc/hostname)
 
@@ -19,4 +22,7 @@ echo "Your new hostname is $newhost"
 
 #Press a key to reboot
 read -s -n 1 -p "Press any key to reboot"
-sudo reboot
+
+# try doing it without a reboot
+#sudo reboot
+sudo service hostname start
