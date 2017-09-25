@@ -2,10 +2,13 @@
 # sudo dpkg --get-selections
 sudo apt-get update
 
+apt-get -y install ssh
 sudo apt-get install build-essential 
 sudo apt-get install tree
 sudo apt-get install screen
 sudo apt-get install tmux
+sudo apt-get install terminator
+sudo apt-get install curl
 
 # for better wget
 sudo apt-get install aria2
@@ -35,6 +38,9 @@ sudo apt install git
 
 # do the right extraction - alternative to tar, automatically extracts any zip format
 sudo apt-get install dtrx 
+
+#docker
+apt-get -y install docker.io
 
 # fortune cookies
 sudo apt install fortune-mod
