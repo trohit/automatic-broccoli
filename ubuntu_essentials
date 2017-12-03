@@ -40,7 +40,7 @@ sudo apt install git
 sudo apt-get install dtrx 
 
 # for a lightweight alternative to unity desktop
-sudo apt-get install cinnamon-desktop-server
+sudo apt-get install cinnamon-desktop-environment
 #docker
 apt-get -y install docker.io
 
