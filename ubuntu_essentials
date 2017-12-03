@@ -2,7 +2,7 @@
 # sudo dpkg --get-selections
 sudo apt-get update
 
-apt-get -y install ssh
+sudo apt-get install ssh
 sudo apt-get install build-essential 
 sudo apt-get install tree
 sudo apt-get install screen
@@ -39,6 +39,8 @@ sudo apt install git
 # do the right extraction - alternative to tar, automatically extracts any zip format
 sudo apt-get install dtrx 
 
+# for a lightweight alternative to unity desktop
+sudo apt-get install cinnamon-desktop-server
 #docker
 apt-get -y install docker.io
 
