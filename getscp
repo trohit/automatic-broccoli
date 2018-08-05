@@ -1,0 +1,20 @@
+#!/bin/bash
+# provides scp path for copy paste
+
+if (( $# != 1 )); then
+    ARG=$PWD
+else
+    ARG=$1
+fi
+MYIP=`~/bin/myip`
+if [ -d "${ARG}" ]
+then
+    #echo "${ARG} is a directory";
+    printf "scp -r $USER@$MYIP:"
+    echo "$PWD/$ARG" .
+elif [ -f "${ARG}" ]
+then
+    #echo "${ARG} is a file";
+    printf "scp $USER@$MYIP:"
+    echo "$PWD/$ARG" .
+fi
