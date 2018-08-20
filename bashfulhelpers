@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# bash helper functions that can be used in other bash scripts
+
+# a countdown timer
+function countdown()
+{
+    SECS=$1
+    #echo "Press <Ctrl-C> in ${SECS} seconds to abort."
+
+    while [[ $SECS -gt 0 ]]
+    do
+        echo -n ${SECS}..
+        sleep 1
+        let SECS=SECS-1
+    done
+    echo
+}
+
+function am_i_root()
+{
+    if [ "$EUID" -ne "0" ]
+    then
+        echo "Please run this as 'sudo $0'"
+        exit
+    fi
+}
+
+function ensure_i_am_not_root()
+{
+    if [ "$EUID" == "0" ]
+    then
+        echo "Please run this as user core"
+        exit 1
+    fi
+}
+
+function ensure_that_ip_not_pingable()
+{
+    IP_ADDR=$1
+    if ping -w 1 -c 1 ${IP_ADDR} &> /dev/null
+    then
+        echo "FATAL ERROR: ${IP_ADDR} pingable, should not already be in use. Check ${PREINSTALL_CONF}"
+        exit 1
+    else
+        echo "GOOD: ${IP_ADDR} not pingable and so free to use"
+    fi
+}
+
+function ensure_that_ip_is_pingable()
+{
+    IP_ADDR=$1
+    if ping -w 1 -c 1 ${IP_ADDR} &> /dev/null
+    then
+        echo "GOOD: ${IP_ADDR} pingable, gateway should be pingable."
+    else
+        echo "FATAL ERROR: ${IP_ADDR} gateway not pingable"
+        exit 1
+    fi
+}
