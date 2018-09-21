@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo "Please enter below details"
+read -p 'SUBJECT: ' SUBJECT
+read -p 'CONTENT: ' CONTENT
+read -p 'TO:' TO
+read -p 'FROM: ' FROM
+
+MAIL_TXT="Subject: $SUBJECT\nFrom: $FROM\nTo: $TO\n\n$CONTENT"
+echo -e $MAIL_TXT | sendmail -t
