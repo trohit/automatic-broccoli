@@ -5,9 +5,13 @@ top10() { history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
+# jack up history size
+export HISTFILESIZE=500000
+export HISTSIZE=100000
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options 
-#HISTCONTROL=ignoreboth
+HISTCONTROL=ignoreboth
 HISTTIMEFORMAT='%F %T  '
 
 # append to the history file, don't overwrite it
