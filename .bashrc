@@ -71,3 +71,4 @@ alias mkdir='mkdir -p -v'
 alias more='less'                   # less is more ;)
 alias nano='nano -w'
 alias ping='ping -c 5'
+alias dr='docker'
