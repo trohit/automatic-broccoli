@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#start_secs=`date +%s`
+#sleep 10
+#end_secs=`date +%s`
+#let secs=($end_secs-$start_secs)
+
+function show_time_diff()
+{
+    secs=$1
+    printf '%dh:%dm:%ds\n' $(($secs/3600)) $(($secs%3600/60)) $(($secs%60))
+}
+
+show_time_diff $1
