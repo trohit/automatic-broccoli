@@ -116,6 +116,26 @@ def get_date_time_human_readable():
     return str(datetime.datetime.now().strftime('%Y_%m_%d_%H_%M'))
 
 
+# hacky datetime apis follow
+# import time
+# import datetime
+def get_epoch_by_date_str(dt_str):
+    dt = datetime.datetime.strptime(dt_str, "%b %d %Y %H:%M:%S")
+    epoch_base = datetime.datetime.utcfromtimestamp(0)
+    epoch = int((dt - epoch_base).total_seconds())
+    return epoch
+
+def get_date_str_by_epoch(epoch):
+    # epoch (adjust for tz) -> datetime -> strftime
+    add_tz = int(time.strftime("%z")) * (-1)
+    hr = add_tz / 100
+    min = add_tz % 100
+    add_secs = (hr * 3600) + (min * 60)
+    epoch += add_secs
+    dt_epoch = datetime.datetime.fromtimestamp(epoch)
+    dt_str = dt_epoch.strftime('%b %d %Y %H:%M:%S')    
+    return dt_str
+
 # expects an array of dicts
 # merges array elements with the same key
 # Input :
