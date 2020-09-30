@@ -23,6 +23,10 @@ import code
 import pdb
 # pdb.set_trace()
 
+# useful to get the function name
+def get_func_name():
+    return sys._getframe(1).f_code.co_name
+
 def write_list_to_file(file_name, list_name):
     thefile = open(file_name, 'w')
     for item in list_name:
