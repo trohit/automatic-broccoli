@@ -23,6 +23,10 @@ import code
 import pdb
 # pdb.set_trace()
 
+# https://stackoverflow.com/questions/26286203/custom-print-function-that-wraps-print
+def xprint(*args, **kwargs):
+    print( "> "+" ".join(map(str,args)) + "", **kwargs)
+
 # useful to get the function name
 def get_func_name():
     return sys._getframe(1).f_code.co_name
