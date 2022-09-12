@@ -131,6 +131,11 @@ def get_epoch_by_date_str(dt_str):
     dt = datetime.datetime.strptime(dt_str, "%b %d %Y %H:%M:%S")
     epoch_base = datetime.datetime.utcfromtimestamp(0)
     epoch = int((dt - epoch_base).total_seconds())
+    
+def xprint(*args, **kwargs):
+    return
+    print("".join(map(str,args)), **kwargs)
+
     return epoch
 
 def get_date_str_by_epoch(epoch):
