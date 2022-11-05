@@ -1,4 +1,5 @@
 #!/bin/bash
+# to make python scripts executable by adding a shebang and exec bit
 cnt=`grep -c "#.*python3" $0`
 if [ $cnt -eq 0 ]
 then
