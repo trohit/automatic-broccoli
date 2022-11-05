@@ -1,0 +1,9 @@
+#!/bin/bash
+cnt=`grep -c "#.*python3" $0`
+if [ $cnt -eq 0 ]
+then
+    sed -i 1i'#!/usr/bin/env python3' $1
+    chmod +x $1
+else
+    echo "nothing to do"
+fi
