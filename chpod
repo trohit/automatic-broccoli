@@ -1,10 +1,19 @@
-#!/bin/bash
-# to make python scripts executable by adding a shebang and exec bit
-cnt=`grep -c "#.*python3" $0`
-if [ $cnt -eq 0 ]
+#!/usr/bin/bash
+
+file=$1
+PY_MATCHES=`head -2 $file | grep python | wc -l`
+#echo $PY_MATCHES
+# https://www.unix.com/unix-for-dummies-questions-and-answers/48609-checking-non-zero-value.html
+if [ $PY_MATCHES -ne 0 ]
 then
-    sed -i 1i'#!/usr/bin/env python3' $1
-    chmod +x $1
+    #echo "You have found a non-zero value"
+    echo "$file already pythonized; nothing to do"
 else
-    echo "nothing to do"
+    echo "pythonizing $file"
+    # https://unix.stackexchange.com/questions/99350/how-to-insert-text-before-the-first-line-of-a-file
+    sed -i '1 i\# -*- coding: utf-8 -*-' $file
+    sed -i '1 i\#!/usr/bin/env python3' $file
+    chmod u+x $file
+    echo "pythonized"
 fi
+exit $PY_MATCHES
