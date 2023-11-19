@@ -1,10 +1,11 @@
+#!/bin/bash
+
 # simple DB
 # From Designing Data Intensive Applications
 # $ db_set 123456 '{"name":"London","attractions":["Big Ben","London Eye"]}'
 # $ db_set 42 '{"name":"San Francisco","attractions":["Golden Gate Bridge"]}'
 # $ db_get 42
 
-#!/bin/bash
 die () {
     echo "$*"
     exit 1
