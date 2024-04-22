@@ -1,12 +1,16 @@
 #!/bin/bash
 # provides scp path for copy paste
+# eg.
+# cd foo
+# getscp bar
+# scp root@1.2.3.4:/root/foo/bar .
 
 if (( $# != 1 )); then
     ARG=$PWD
 else
     ARG=$1
 fi
-MYIP=`~/bin/myip`
+MYIP=`hostname -i | awk {'print $1'}`
 if [ -d "${ARG}" ]
 then
     #echo "${ARG} is a directory";
