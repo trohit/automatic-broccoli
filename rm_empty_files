@@ -1,0 +1,3 @@
+#!/bin/bash
+# https://stackoverflow.com/questions/3157343/how-to-delete-many-0-byte-files-in-linux
+find . -name \*.txt -size 0 -print0 | xargs -0 rm -vi
