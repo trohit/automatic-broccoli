@@ -21,5 +21,9 @@ alias open='gnome-open'; # open files with appropriate program from terminal
 alias p='python';
 alias v='vim';
 alias mv='mv -i' # asks if accidentally replacing
+
+#  alias in bash to convert bytes into mb
+alias bytes_to_mb='awk "{printf \"%.2f MB\n\", \$1 / (1024 * 1024)}"'
+
 alias mybeep='aplay /usr/share/sounds/speech-dispatcher/test.wav 2>/dev/null'
 alias dr='docker'
