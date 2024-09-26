@@ -1,4 +1,6 @@
 #!/bin/bash
+# to print only leaf dirs
+# for i in `./leafdirs`; do basename $i; done
 
 # Find all directories
 find . -type d | while read -r dir; do
