@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Find all directories
+find . -type d | while read -r dir; do
+    # Check if the directory contains any subdirectories
+    subdirs=$(find "$dir" -mindepth 1 -type d | wc -l)
+
+    # If no subdirectories, print the directory (it's a leaf directory)
+    if [[ $subdirs -eq 0 ]]; then
+        echo "$dir"
+    fi
+done
